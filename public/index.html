@@ -14,37 +14,119 @@
 <body>
 
     <!-- ══════════════════════════
-     HEADER
+     HEADER WITH MODERN NAVIGATION
 ══════════════════════════ -->
     <header class="site-header">
         <div class="header-inner">
+            <!-- Hamburger Menu Button on Left -->
+            <button class="hamburger-btn-left" id="hamburgerBtnLeft" aria-label="Toggle left menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <!-- Logo in Center -->
             <div class="logo">
-                <img src="sd_logo.png" alt="SD Fencing" style="height: 50px; width: auto;">
+                <img src="sd_logo.png" alt="SD Fencing" class="logo-img">
                 <div class="logo-name">SD<span>FENCING</span></div>
             </div>
 
-            <nav>
-                <ul>
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#why-us">Why Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-social">
-                <a href="https://yt.openinapp.co/q9q2a" target="_blank" title="YouTube"><i
-                        class="fab fa-youtube"></i></a>
-                <a href="https://insta.openinapp.co/681go" target="_blank" title="Instagram"><i
-                        class="fab fa-instagram"></i></a>
-                <a href="https://fb.openinapp.co/2lf7z" target="_blank" title="Facebook"><i
-                        class="fab fa-facebook-f"></i></a>
-                <a href="https://g.page/r/CTVs-XZ5Tb26EAE/review" target="_blank" title="Google Maps"><i
-                        class="fas fa-map-marker-alt"></i></a>
-                <a href="tel:8547444555" class="header-phone-link" title="Call Us"><i class="fas fa-phone-alt"></i>
-                    8547444555</a>
-            </div>
+            <!-- Hamburger Menu Button on Right -->
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
     </header>
+
+    <!-- ══════════════════════════
+     LEFT OFF-CANVAS MENU DRAWER
+══════════════════════════ -->
+    <div class="menu-overlay-left" id="menuOverlayLeft"></div>
+    <div class="side-menu-left" id="sideMenuLeft">
+        <button class="menu-close-btn-left" id="menuCloseBtnLeft" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <nav class="menu-nav-left">
+            <ul class="nav-list-left">
+                <li class="nav-item-left"><a href="#home" class="nav-link-left">HOME</a></li>
+                <li class="nav-item-left"><a href="#services" class="nav-link-left">SERVICES</a></li>
+                <li class="nav-item-left"><a href="#gallery" class="nav-link-left">GALLERY</a></li>
+                <li class="nav-item-left"><a href="#why-us" class="nav-link-left">WHY US</a></li>
+                <li class="nav-item-left"><a href="#contact" class="nav-link-left">CONTACT</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-divider-left"></div>
+
+        <!-- Social Icons in Left Menu -->
+        <div class="menu-social-left">
+            <a href="https://yt.openinapp.co/q9q2a" target="_blank" class="social-icon-left" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://insta.openinapp.co/681go" target="_blank" class="social-icon-left" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://fb.openinapp.co/2lf7z" target="_blank" class="social-icon-left" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://g.page/r/CTVs-XZ5Tb26EAE/review" target="_blank" class="social-icon-left"
+                title="Google Maps">
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+        </div>
+
+        <!-- Phone Number in Left Menu -->
+        <div class="menu-contact-left">
+            <a href="tel:8547444555" class="phone-link-left">
+                <i class="fas fa-phone-alt"></i> 8547444555
+            </a>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════
+     OFF-CANVAS MENU DRAWER
+══════════════════════════ -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="side-menu" id="sideMenu">
+        <button class="menu-close-btn" id="menuCloseBtn" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <nav class="menu-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#home" class="nav-link">HOME</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">SERVICES</a></li>
+                <li class="nav-item"><a href="#gallery" class="nav-link">GALLERY</a></li>
+                <li class="nav-item"><a href="#why-us" class="nav-link">WHY US</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">CONTACT</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-divider"></div>
+
+        <!-- Social Icons in Menu -->
+        <div class="menu-social">
+            <a href="https://yt.openinapp.co/q9q2a" target="_blank" class="social-icon" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://insta.openinapp.co/681go" target="_blank" class="social-icon" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://fb.openinapp.co/2lf7z" target="_blank" class="social-icon" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+
+        <!-- Phone Number in Menu -->
+        <div class="menu-contact">
+            <a href="tel:8547444555" class="phone-link">
+                <i class="fas fa-phone-alt"></i> 8547444555
+            </a>
+        </div>
+    </div>
 
     <!-- ══════════════════════════
      HERO
@@ -112,7 +194,8 @@
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-cubes"></i></div>
                     <h3>Slab Mathil Fencing</h3>
-                    <p>Durable precast concrete boundary walls (Slab Mathil) for robust security, rapid installation, and long-lasting privacy.
+                    <p>Durable precast concrete boundary walls (Slab Mathil) for robust security, rapid installation,
+                        and long-lasting privacy.
                     </p>
                 </div>
                 <div class="service-card">
@@ -404,6 +487,9 @@
     <a href="https://wa.me/918547444555" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- Load App Script -->
+    <script src="app.js"></script>
 
     <script>
         // ── Active nav link on scroll ──────────────────
