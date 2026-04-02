@@ -80,8 +80,8 @@
 
         <!-- Phone Number in Left Menu -->
         <div class="menu-contact-left">
-            <a href="tel:8547444555" class="phone-link-left">
-                <i class="fas fa-phone-alt"></i> 8547444555
+            <a href="tel:8089506088" class="phone-link-left">
+                <i class="fas fa-phone-alt"></i> 8089506088
             </a>
         </div>
     </div>
@@ -122,8 +122,8 @@
 
         <!-- Phone Number in Menu -->
         <div class="menu-contact">
-            <a href="tel:8547444555" class="phone-link">
-                <i class="fas fa-phone-alt"></i> 8547444555
+            <a href="tel:8089506088" class="phone-link">
+                <i class="fas fa-phone-alt"></i> 8089506088
             </a>
         </div>
     </div>
@@ -149,7 +149,7 @@
                 </div>
                 <div class="hero-btns">
                     <a href="#contact" class="btn-yellow"><i class="fas fa-file-invoice"></i> Get Free Quote</a>
-                    <a href="tel:8547444555" class="btn-outline"><i class="fas fa-phone-alt"></i> Call Now</a>
+                    <a href="tel:8089506088" class="btn-outline"><i class="fas fa-phone-alt"></i> Call Now</a>
                 </div>
                 <div class="hero-trust">
                     <div class="trust-item">
@@ -346,7 +346,7 @@
                         <div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div>
                         <div>
                             <h4>Phone / Toll-Free</h4>
-                            <p>8547444555</p>
+                            <p>8089506088</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -358,7 +358,7 @@
                     </div>
 
 
-                    <a href="https://wa.me/918547444555" target="_blank" class="wa-btn">
+                    <a href="https://wa.me/918089506088" target="_blank" class="wa-btn">
                         <i class="fab fa-whatsapp" style="font-size:1.3rem;"></i> Chat on WhatsApp
                     </a>
 
@@ -370,62 +370,108 @@
                 <!-- Form -->
                 <div class="contact-form">
                     <h3>Send Us A Message</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Your Name *</label>
-                            <input type="text" placeholder="John Doe" required>
+                    <form id="quoteForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Your Name *</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 80895 06088" required>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label>Phone Number *</label>
-                            <input type="tel" placeholder="+91 98765 43210" required>
+                            <label>Fencing Type</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option>Chain Link Fencing</option>
+                                <option>Barbed Wire Fencing</option>
+                                <option>GI Fencing</option>
+                                <option>Fence Posts &amp; Pillars</option>
+                                <option>Repair &amp; Maintenance</option>
+                            </select>
                         </div>
+                        <div class="button-group" style="display: flex; gap: 15px; margin-bottom: 1.5rem;">
+                            <input type="hidden" id="quantity" name="quantity" value="">
+                            <button type="button" class="custom-btn" onclick="selectOption(this, 'Less than 100m')">Less than 100m</button>
+                            <button type="button" class="custom-btn" onclick="selectOption(this, 'More than 100m')">More than 100m</button>
+                        </div>
+                        <div class="form-group">
+                            <label>District</label>
+                            <select id="district" name="district">
+                                <option value="">Select a District</option>
+                                <option>Kasaragod</option>
+                                <option>Kannur</option>
+                                <option>Wayanad</option>
+                                <option>Kozhikode</option>
+                                <option>Malappuram</option>
+                                <option>Palakkad</option>
+                                <option>Thrissur</option>
+                                <option>Ernakulam</option>
+                                <option>Idukki</option>
+                                <option>Kottayam</option>
+                                <option>Alappuzha</option>
+                                <option>Pathanamthitta</option>
+                                <option>Kollam</option>
+                                <option>Thiruvananthapuram</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message / Site Details</label>
+                            <textarea id="message" name="message"
+                                placeholder="Tell us about your project — location, approximate area, budget, etc."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            <span class="btn-text">Submit Request</span>
+                            <i class="fas fa-arrow-right" style="margin-left:.5rem;"></i>
+                        </button>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div id="successMessage" class="success-msg" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Request Sent!</h4>
+                        <p>Our team will contact you shortly via WhatsApp.</p>
+                        <button class="btn-yellow" onclick="resetForm()" style="margin-top: 1rem; width: 100%;">Send Another</button>
                     </div>
-                    <div class="form-group">
-                        <label>Fencing Type</label>
-                        <select>
-                            <option value="">Select a service</option>
-                            <option>Chain Link Fencing</option>
-                            <option>Barbed Wire Fencing</option>
-                            <option>GI Fencing</option>
-                            <option>Fence Posts &amp; Pillars</option>
-                            <option>Repair &amp; Maintenance</option>
-                        </select>
-                    </div>
-                    <div class="button" style="display: flex; gap: 15px;">
-                        <button class="custom-btn" onclick="selectOption(this)">Less than 100m</button>
-                        <button class="custom-btn" onclick="selectOption(this)">More than 100m</button>
-                    </div>
-                    <div class="form-group">
-                        <label>District</label>
-                        <select>
-                            <option value="">Select a District</option>
-                            <option>Kasaragod</option>
-                            <option>Kannur</option>
-                            <option>Wayanad</option>
-                            <option>Kozhikode</option>
-                            <option>Malappuram</option>
-                            <option>Palakkad</option>
-                            <option>Thrissur</option>
-                            <option>Ernakulam</option>
-                            <option>Idukki</option>
-                            <option>Kottayam</option>
-                            <option>Alappuzha</option>
-                            <option>Pathanamthitta</option>
-                            <option>Kollam</option>
-                            <option>Thiruvananthapuram</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Message / Site Details</label>
-                        <textarea
-                            placeholder="Tell us about your project — location, approximate area, budget, etc."></textarea>
-                    </div>
-                    <button class="btn-submit">Submit Request <i class="fas fa-arrow-right"
-                            style="margin-left:.5rem;"></i></button>
                 </div>
             </div>
         </div>
     </section>
+
+    <style>
+        .success-msg {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid var(--yellow);
+            margin-top: 1rem;
+        }
+        .success-msg i {
+            font-size: 3rem;
+            color: var(--yellow);
+            margin-bottom: 1rem;
+        }
+        .success-msg h4 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .success-msg p {
+            color: #ccc;
+        }
+        .custom-btn.active {
+            background: var(--yellow);
+            color: #000;
+            border-color: var(--yellow);
+        }
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+    </style>
 
     <!-- ══════════════════════════
      FOOTER
@@ -440,7 +486,7 @@
                     </div>
                     <p>SD FENCING is a market leader in fencing solutions across India.</p>
                     <p style="margin-top:.6rem;"><i class="fas fa-mobile-alt"
-                            style="color:var(--yellow); margin-right:.4rem;"></i> 8547444555</p>
+                            style="color:var(--yellow); margin-right:.4rem;"></i> 8089506088</p>
                     <p><i class="fas fa-envelope" style="color:var(--yellow); margin-right:.4rem;"></i>
                         dxfencing@gmail.com</p>
                 </div>
@@ -484,7 +530,7 @@
     </footer>
 
     <!-- Floating WhatsApp -->
-    <a href="https://wa.me/918547444555" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+    <a href="https://wa.me/918089506088" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 

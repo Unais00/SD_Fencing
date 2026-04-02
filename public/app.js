@@ -121,6 +121,96 @@ function initMobileMenu() {
             closeLeftMenu();
         }
     });
+
+    // ═══════════════════════════════════
+    // CONTACT FORM HANDLING
+    // ═══════════════════════════════════
+    initContactForm();
+}
+
+// Global function for color selection buttons
+function selectOption(btn, value) {
+    // Remove active class from siblings
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.custom-btn').forEach(b => b.classList.remove('active'));
+    
+    // Add active class to clicked button
+    btn.classList.add('active');
+    
+    // Update hidden input
+    document.getElementById('quantity').value = value;
+}
+
+// Global function to reset form
+function resetForm() {
+    const form = document.getElementById('quoteForm');
+    const successMsg = document.getElementById('successMessage');
+    
+    if (form) {
+        form.reset();
+        form.style.display = 'block';
+        // Reset quantity buttons
+        form.querySelectorAll('.custom-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('quantity').value = '';
+    }
+    
+    if (successMsg) {
+        successMsg.style.display = 'none';
+    }
+}
+
+function initContactForm() {
+    const form = document.getElementById('quoteForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMessage');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Basic validation for quantity
+        const quantity = document.getElementById('quantity').value;
+        if (!quantity) {
+            alert('Please select a quantity (Less/More than 100m)');
+            return;
+        }
+
+        // UI Feedback
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch('/api/submit-request', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                // Show success
+                form.style.display = 'none';
+                successMsg.style.display = 'block';
+                
+                // Scroll to message
+                successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                throw new Error('Failed to send request');
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+            alert('Sorry, there was an error sending your request. Please try again or call us directly.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+    });
 }
 
 // ══════════════════════════════════════════════
